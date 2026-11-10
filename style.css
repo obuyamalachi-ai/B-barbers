@@ -1,0 +1,134 @@
+:root {
+  --navy: #0a2a66;
+  --navy-deep: #061a40;
+  --white: #ffffff;
+  --mist: #eef2fa;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--white);
+  color: var(--navy);
+  font-family: "Jost", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  position: relative;
+}
+/* Copyright watermark across every page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='190'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' transform='rotate(-25 150 95)' font-family='Arial,sans-serif' font-size='22' font-weight='bold' fill='%238aa4d6' fill-opacity='0.16'%3E%C2%A9 B%27Barber%3C/text%3E%3C/svg%3E");
+}
+h1, h2, h3, h4, .brand {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  line-height: 1.1;
+  font-weight: 600;
+}
+h1 { font-size: clamp(2.8rem, 8vw, 5rem); }
+h2 { font-size: clamp(2rem, 5vw, 3rem); }
+a { text-decoration: none; color: inherit; }
+:focus-visible { outline: 3px solid #8aa4d6; outline-offset: 3px; }
+
+/* Dark and light sections */
+.dark { background: var(--navy); color: var(--white); }
+.deep { background: var(--navy-deep); color: var(--white); }
+.dark h1, .dark h2, .dark h3, .dark h4, .deep h1, .deep h2, .deep h3 { color: var(--white); }
+.eyebrow { letter-spacing: .3em; text-transform: uppercase; font-size: .85rem; font-weight: 600; opacity: .85; }
+
+/* Navbar */
+.site-nav { background: var(--navy-deep); border-bottom: 3px solid var(--white); }
+.brand { color: var(--white); font-size: 1.7rem; }
+.site-nav .nav-link { color: var(--white); font-weight: 500; letter-spacing: .05em; padding: .5rem 1rem; }
+.site-nav .nav-link:hover { color: #8aa4d6; }
+.site-nav .nav-link.active { border-bottom: 2px solid var(--white); }
+.navbar-toggler { border-color: var(--white); }
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Buttons */
+.btn-navy, .btn-white, .btn-ghost {
+  border-radius: 0;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .85rem 2rem;
+  border: 2px solid var(--navy);
+  transition: transform .15s, background .2s, color .2s;
+}
+.btn-navy { background: var(--navy); color: var(--white); }
+.btn-navy:hover { background: var(--white); color: var(--navy); transform: translateY(-2px); }
+.btn-white { background: var(--white); color: var(--navy); border-color: var(--white); }
+.btn-white:hover { background: transparent; color: var(--white); transform: translateY(-2px); }
+.btn-ghost { background: transparent; color: var(--navy); }
+.btn-ghost:hover { background: var(--navy); color: var(--white); }
+.dark .btn-ghost, .deep .btn-ghost { color: var(--white); border-color: var(--white); }
+.dark .btn-ghost:hover, .deep .btn-ghost:hover { background: var(--white); color: var(--navy); }
+
+/* Layout */
+.section { padding: 5rem 0; }
+.lead-text { font-size: 1.3rem; }
+
+/* Image frames with copyright badge */
+.frame { position: relative; border: 3px solid var(--white); background: var(--white); padding: .5rem; box-shadow: 10px 10px 0 var(--navy-deep); }
+.light-bg .frame, .frame.on-white { border-color: var(--navy); box-shadow: 10px 10px 0 var(--navy); }
+.frame img { width: 100%; height: auto; display: block; }
+.frame::after {
+  content: "\00A9  B\2019 Barber";
+  position: absolute;
+  right: .8rem;
+  bottom: .8rem;
+  background: rgba(6, 26, 64, .78);
+  color: #fff;
+  font-size: .75rem;
+  letter-spacing: .08em;
+  padding: .15rem .55rem;
+}
+
+/* Hero */
+.hero { padding: 4.5rem 0 5.5rem; overflow: hidden; }
+.hero .hero-copy { animation: rise .9s ease-out both; }
+.hero .hero-art { animation: rise .9s .25s ease-out both; }
+@keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+
+/* Ticker strip */
+.strip { background: var(--white); border-bottom: 3px solid var(--navy); padding: 1rem 0; text-align: center; font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: .25em; font-size: 1rem; }
+
+/* Numbered feature columns */
+.num { font-family: "Oswald", sans-serif; font-size: 3.2rem; line-height: 1; color: #8aa4d6; }
+
+/* Service rows */
+.service-row { border-top: 2px solid var(--navy); padding: 1.6rem 0; }
+.service-row:last-child { border-bottom: 2px solid var(--navy); }
+.service-row h3 { font-size: 1.7rem; margin: 0; }
+.service-row p { margin: 0; }
+
+/* Gallery */
+.gallery-item { cursor: zoom-in; border: 3px solid var(--navy); padding: .5rem; background: #fff; width: 100%; position: relative; }
+.gallery-item img { width: 100%; height: 340px; object-fit: contain; background: #fff; display: block; }
+.gallery-item::after { content: "\00A9  B\2019 Barber"; position: absolute; right: .9rem; bottom: .9rem; background: rgba(6,26,64,.78); color: #fff; font-size: .75rem; letter-spacing: .08em; padding: .15rem .55rem; }
+.modal-content { border: 3px solid var(--navy); border-radius: 0; color: var(--navy); }
+.modal-body img { width: 100%; max-height: 80vh; object-fit: contain; }
+
+/* Form */
+.form-label { font-weight: 600; letter-spacing: .04em; }
+.form-control, .form-select { border: 2px solid var(--navy); border-radius: 0; color: var(--navy); background-color: #fff; }
+.form-control::placeholder { color: #6b7fa8; }
+.form-control:focus, .form-select:focus { border-color: var(--navy); box-shadow: 0 0 0 .2rem rgba(10,42,102,.2); color: var(--navy); }
+.info-box { background: var(--navy); color: var(--white); padding: 2rem; }
+.info-box h2 { color: var(--white); font-size: 1.8rem; }
+
+/* Footer */
+.site-footer { background: var(--navy-deep); color: var(--white); padding: 3rem 0 1.5rem; font-size: 1rem; border-top: 3px solid var(--white); }
+.site-footer a { text-decoration: underline; }
+.site-footer hr { border-color: #fff; opacity: .35; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero .hero-copy, .hero .hero-art { animation: none; }
+}
